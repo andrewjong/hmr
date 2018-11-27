@@ -20,6 +20,7 @@ from __future__ import division
 from __future__ import print_function
 
 import sys
+import os
 from absl import flags
 import numpy as np
 
@@ -86,6 +87,9 @@ def visualize(img, proc_param, joints, verts, cam):
     plt.axis('off')
     plt.draw()
     plt.show()
+    fname = os.path.basename(config.img_path)
+    out = os.path.join("out", fname)
+    plt.savefig(out, bbox_inches='tight')
     # import ipdb
     # ipdb.set_trace()
 
