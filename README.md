@@ -29,6 +29,11 @@ pip install tensorflow-gpu==1.3.0
 Without GPU:
 ```
 pip install tensorflow==1.3.0
+
+```
+#### Install Dependencies
+```
+pip install absl-py scikit-image opencv-python opendr
 ```
 
 ### Demo
