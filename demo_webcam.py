@@ -56,8 +56,12 @@ def main():
     view.camera = 'turntable'  # or try 'arcball'
     axis = visuals.XYZAxis(parent=view.scene)
 
+    # BY ANDREW: add GPU growth
+    tfcfg = tf.ConfigProto()
+    tfcfg.gpu_options.allow_growth = True
+
     #load model
-    sess = tf.Session()
+    sess = tf.Session(config=tfcfg)
     model = RunModel(config, sess=sess)
 
     while(True):
