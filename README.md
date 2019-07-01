@@ -8,11 +8,11 @@ CVPR 2018
 
 ### Requirements
 - Python 2.7
-- [TensorFlow](https://www.tensorflow.org/) tested on version 1.3
+- [TensorFlow](https://www.tensorflow.org/) tested on version 1.3, demo alone runs with TF 1.12
 
 ### Installation
 
-#### Setup virtualenv
+#### Linux Setup with virtualenv
 ```
 virtualenv venv_hmr
 source venv_hmr/bin/activate
@@ -35,6 +35,15 @@ pip install tensorflow==1.3.0
 ```
 pip install absl-py scikit-image opencv-python opendr
 ```
+
+### Windows Setup with python 3 and Anaconda
+This is only partialy tested.
+```
+conda env create -f hmr.yml
+```
+#### if you need to get chumpy 
+https://github.com/mattloper/chumpy/tree/db6eaf8c93eb5ae571eb054575fb6ecec62fd86d
+
 
 ### Demo
 
@@ -59,6 +68,15 @@ python -m demo --img_path data/random.jpg --json_path data/random_keypoints.json
 ```
 (The demo only runs on the most confident bounding box, see `src/util/openpose.py:get_bbox`)
 
+### Webcam Demo (thanks @JulesDoe!)
+1. Download pre-trained models like above.
+2. Run webcam Demo
+2. Run the demo
+```
+python -m demo --img_path data/coco1.png
+python -m demo --img_path data/im1954.jpg
+```
+
 ### Training code/data
 Please see the [doc/train.md](https://github.com/akanazawa/hmr/blob/master/doc/train.md)!
 
@@ -81,4 +99,12 @@ If you use this code for your research, please consider citing:
 
 [MandyMo](https://github.com/MandyMo) has implemented a pytorch version of the repo: https://github.com/MandyMo/pytorch_HMR.git
 
-I have not tested them, but I appreciate the contribution! Thank you!!
+[Dene33](https://github.com/Dene33) has made a .ipynb for Google Colab that takes video as input and returns .bvh animation!
+https://github.com/Dene33/video_to_bvh 
+
+<img alt="bvh" src="https://i.imgur.com/QxML83b.gif" /><img alt="" src="https://i.imgur.com/vfge7DS.gif" />
+<img alt="bvh2" src=https://i.imgur.com/UvBM1gv.gif />
+
+I have not tested them, but the contributions are super cool! Thank you!!
+
+
