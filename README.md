@@ -21,6 +21,14 @@ deactivate
 source venv_hmr/bin/activate
 pip install -r requirements.txt
 ```
+#### Linux Setup with conda
+```
+conda create -n hmr python=2
+conda activate hmr
+pip install -r requirements.txt
+# note: scikit-image and matplotlib may fail with pip. if that happens, install with conda via
+conda install scikit-image matplotlib
+```
 #### Install TensorFlow
 With GPU:
 ```

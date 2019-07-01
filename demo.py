@@ -89,6 +89,10 @@ def visualize(img, proc_param, joints, verts, cam):
     plt.show()
     fname = os.path.basename(config.img_path)
     out = os.path.join("out", fname)
+    try:
+        os.makedirs(os.path.dirname(out))
+    except OSError as e:
+        pass
     plt.savefig(out, bbox_inches='tight')
     # import ipdb
     # ipdb.set_trace()
@@ -121,7 +125,9 @@ def preprocess_image(img_path, json_path=None):
 
 
 def main(img_path, json_path=None):
-    sess = tf.Session()
+    tfcfg = tf.ConfigProto()
+    tfcfg.gpu_options.allow_growth=True
+    sess = tf.Session(config=tfcfg)
     model = RunModel(config, sess=sess)
 
     input_img, proc_param, img = preprocess_image(img_path, json_path)
